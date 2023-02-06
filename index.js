@@ -2,8 +2,9 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express';
 import connect from './config/database_conection.js';
-import { router as userRouter } from './routes/Users.Router.js'
-console.log(userRouter);
+import cors from 'cors'
+import { router as userRouter } from './routes/UsersRouter.js'
+
 
 try {
   await connect(process.env.DATABASE_URI);
@@ -13,10 +14,11 @@ try {
 
 const app = express();
 
+app.use(cors('*'));
+app.use(express.json());
+
 app.use('/users', userRouter);
 
-app.get('/', (req,res)=>{
-  res.send('hola mundo')
-})
+
 
 app.listen(3000, ()=> console.log('estoy escuchando en el puerto 3000'));

@@ -5,7 +5,6 @@ import connect from './config/database_conection.js';
 
 try {
   await connect(process.env.DATABASE_URI);
-  console.log('el objecto de coneccion es: ',connection);
 } catch(err) {
   console.log(err);
 }

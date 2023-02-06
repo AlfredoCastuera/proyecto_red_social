@@ -2,6 +2,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express';
 import connect from './config/database_conection.js';
+import { router as userRouter } from './routes/Users.Router.js'
+console.log(userRouter);
 
 try {
   await connect(process.env.DATABASE_URI);
@@ -10,6 +12,8 @@ try {
 }
 
 const app = express();
+
+app.use('/users', userRouter);
 
 app.get('/', (req,res)=>{
   res.send('hola mundo')

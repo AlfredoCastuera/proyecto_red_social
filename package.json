@@ -1,0 +1,15 @@
+{
+  "name": "proyecto-red-social",
+  "version": "1.0.0",
+  "description": "una pequena api que simula una red social",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "red_social",
+    "api"
+  ],
+  "author": "Hector_alcaraz y Freddy castuera",
+  "license": "ISC"
+}

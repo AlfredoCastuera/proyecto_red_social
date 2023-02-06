@@ -4,10 +4,14 @@ import signToken from '../utils/jsonwebtoken.js'
 
 export const createUser = async (req,res) => {
   const { body } = req
-  const newUser = new User(body);
-  const createdUser = await newUser.save();
-  const accessToken = signToken({userID: createdUser._id})
-  return res.json({user: newUser, accessToken})
+  try{
+    const newUser = new User(body);
+    const createdUser = await newUser.save();
+    const accessToken = signToken({userID: createdUser._id})
+    return res.json({user: newUser, accessToken})
+  } catch(err){
+      return res.status(400).json({message:err.message});
+  }
 }
 
 export const getAllUsers = async (req, res) => {

@@ -4,6 +4,9 @@ import express from 'express';
 import connect from './config/database_conection.js';
 import cors from 'cors'
 import { router as userRouter } from './routes/UsersRouter.js'
+import { router as authRouter } from './routes/AuthRouter.js'
+import { router as postsRouter } from './routes/PostsRouter.js'
+
 
 
 try {
@@ -18,6 +21,9 @@ app.use(cors('*'));
 app.use(express.json());
 
 app.use('/users', userRouter);
+app.use('/auth', authRouter)
+app.use('/posts', postsRouter)
+
 
 
 

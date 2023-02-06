@@ -1,11 +1,13 @@
 import User from '../models/UsersModel.js'
 import { validateID } from '../utils/validateID.js';
+import signToken from '../utils/jsonwebtoken.js'
 
 export const createUser = async (req,res) => {
   const { body } = req
   const newUser = new User(body);
-  await newUser.save();
-  return res.json({user: newUser})
+  const createdUser = await newUser.save();
+  const accessToken = signToken({userID: createdUser._id})
+  return res.json({user: newUser, accessToken})
 }
 
 export const getAllUsers = async (req, res) => {

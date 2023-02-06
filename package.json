@@ -3,13 +3,21 @@
   "version": "1.0.0",
   "description": "una pequena api que simula una red social",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon index.js"
   },
   "keywords": [
     "red_social",
     "api"
   ],
   "author": "Hector_alcaraz y Freddy castuera",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
